@@ -1,0 +1,1 @@
+let templatetype = variable::get("templatetype");

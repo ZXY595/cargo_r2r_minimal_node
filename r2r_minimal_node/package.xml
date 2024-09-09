@@ -4,9 +4,9 @@
   <name>{{project-name}}</name>
   <version>0.0.1</version>
   <description>Examples of a minimal r2r node</description>
-  <maintainer email="{{authors}}">{{authors}}</maintainer>
+  <maintainer email="{{authors}}">{{username}}</maintainer>
   <license>MIT</license>
-  <author>{{authors}}</author>
+  <author>{{username}}</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
