@@ -17,6 +17,14 @@ ignore = [".cargo", "src/", "Cargo.toml", "dummy.c", "r2r_carge.cmake"]
 [conditional.'template_type != "msgs"']
 ignore = ["action/", "msg/", "srv/"]
 
+[conditional.'msgs_have_msg == false']
+ignore = ["msg/"]
+
+[conditional.'msgs_have_srv == false']
+ignore = ["srv/"]
+
+[conditional.'msgs_have_action == false']
+ignore = ["action/"]
 
 [conditional.'template_type == "node"'.placeholders.use_std_msgs]
 type = "bool"
@@ -25,9 +33,25 @@ default = true
 
 [conditional.'template_type == "node"'.placeholders.use_additonal_msgs]
 type = "bool"
-prompt = "will your node use custom msgs?"
-default = false
+prompt = "will your node use additonal custom msgs?"
+default = true
 
 [conditional.use_additonal_msgs.placeholders.additonal_msgs]
 type = "string"
 prompt = "what's your custom msgs name?"
+
+
+[conditional.'template_type == "msgs"'.placeholders.msgs_have_msg]
+type = "bool"
+prompt = "will your msgs have message?"
+default = true
+
+[conditional.'template_type == "msgs"'.placeholders.msgs_have_srv]
+type = "bool"
+prompt = "will your msgs have service?"
+default = true
+
+[conditional.'template_type == "msgs"'.placeholders.msgs_have_action]
+type = "bool"
+prompt = "will your msgs have action?"
+default = true

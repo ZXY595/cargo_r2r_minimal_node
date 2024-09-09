@@ -55,9 +55,15 @@ find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
+  {% if msgs_have_msg -%} 
   "msg/Hello.msg"
+  {% endif -%}
+  {% if msgs_have_srv -%} 
   "srv/HelloWorld.srv"
+  {% endif -%}
+  {% if msgs_have_action -%} 
   "action/SayHello.action"
+  {% endif -%}
 )
 
 {% endif -%}
