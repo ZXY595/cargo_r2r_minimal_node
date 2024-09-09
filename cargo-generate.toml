@@ -1,18 +1,33 @@
 [template]
 cargo_generate_version = ">=0.17.4"
-ignore = [".git"]
+ignore = [".git", "Cargo.lock", "target"]
 
 [hooks]
 pre = ["pre-script.rhai"]
 
-[placeholders.templatetype]
+[placeholders.template_type]
 type = "string"
-prompt = "chose a template type"
-choices = ["node", "msgs", "node & msgs"]
+prompt = "chose a template"
+choices = ["node", "msgs"]
 default = "node"
 
-[conditional.'templatetype == "node"']
-ignore = ["r2r_minimal_node_msgs/"]
+[conditional.'template_type != "node"']
+ignore = [".cargo", "src/", "Cargo.toml", "dummy.c", "r2r_carge.cmake"]
 
-[conditional.'templatetype == "msgs"']
-ignore = ["r2r_minimal_node/"]
+[conditional.'template_type != "msgs"']
+ignore = ["action/", "msg/", "srv/"]
+
+
+[conditional.'template_type == "node"'.placeholders.use_std_msgs]
+type = "bool"
+prompt = "will your node use std msgs?"
+default = true
+
+[conditional.'template_type == "node"'.placeholders.use_additonal_msgs]
+type = "bool"
+prompt = "will your node use custom msgs?"
+default = false
+
+[conditional.use_additonal_msgs.placeholders.additonal_msgs]
+type = "string"
+prompt = "what's your custom msgs name?"

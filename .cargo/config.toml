@@ -1,0 +1,3 @@
+# Example of how to do idl package filtering.
+[env]
+IDL_PACKAGE_FILTER = { value = "{$ if use_std_msgs -%}std_msgs{% endif -%}{$ if use_additonal_msgs -%};{{additonal_msgs}}{% endif -%}" }

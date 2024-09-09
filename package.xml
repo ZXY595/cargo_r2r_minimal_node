@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format{{package_format}}.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="{{package_format}}">
+  <name>{{project-name}}</name>
+  <version>0.0.1</version>
+  <description>{{project-name}}</description>
+  <maintainer email="{{authors}}">{{username}}</maintainer>
+  <license>MIT</license>
+  <author>{{username}}</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  {% if template_type == "node" -%}
+
+  <build_depend>rcl</build_depend>
+
+  {$ if use_std_msgs -%}
+  <build_depend>std_msgs</build_depend>
+  {% endif -%}
+
+  {$ if use_additonal_msgs -%}
+  <build_depend>{{additonal_msgs}}</build_depend>
+  {% endif -%}
+
+  <exec_depend>rcl</exec_depend>
+
+  {$ if use_std_msgs -%}
+  <exec_depend>std_msgs</exec_depend>
+  {% endif -%}
+
+  {$ if use_additonal_msgs -%}
+  <exec_depend>{{additonal_msgs}}</exec_depend>
+  {% endif -%}
+
+
+  {% endif -%}
+
+  {% if template_type == "msgs" -%}
+
+  <build_depend>rosidl_default_generators</build_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  {% endif -%}
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

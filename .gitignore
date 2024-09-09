@@ -1,4 +1,5 @@
-r2r_minimal_node/target
+target
+.vscode/
 
 # colcon stuff
 build/
