@@ -1,7 +1,7 @@
 [package]
-name = "r2r_minimal_node"
+name = "{{project-name}}"
 version = "0.1.0"
-authors = ["Martin Dahl <martin.dahl@gmail.com>"]
+authors = ["{{authors}}"]
 edition = "2021"
 
 # We use a custom profile to keep colcon

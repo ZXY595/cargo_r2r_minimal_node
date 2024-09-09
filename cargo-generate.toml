@@ -1,0 +1,18 @@
+[template]
+cargo_generate_version = ">=0.17.4"
+ignore = [".git"]
+
+[placeholders.templatetype]
+type = "string"
+prompt = "chose a template type"
+choices = ["node", "msgs", "node & msgs"]
+default = "node"
+
+[conditional.'templatetype == "node"']
+include = ["r2r_minimal_node"]
+
+[conditional.'templatetype == "msgs"']
+include = ["r2r_minimal_node_msgs"]
+
+[conditional.'templatetype == "msgs & msgs"']
+include = ["r2r_minimal_node", "r2r_minimal_node_msgs"]

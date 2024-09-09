@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
-  <name>r2r_minimal_node</name>
+  <name>{{project-name}}</name>
   <version>0.0.1</version>
   <description>Examples of a minimal r2r node</description>
-  <maintainer email="martin.dahl@gmail.com">Martin Dahl</maintainer>
+  <maintainer email="{{authors}}">{{authors}}</maintainer>
   <license>MIT</license>
-  <author>Martin Dahl</author>
+  <author>{{authors}}</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
