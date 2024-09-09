@@ -12,10 +12,7 @@ choices = ["node", "msgs", "node & msgs"]
 default = "node"
 
 [conditional.'templatetype == "node"']
-include = ["r2r_minimal_node/"]
+ignore = ["r2r_minimal_node_msgs/"]
 
 [conditional.'templatetype == "msgs"']
-include = ["r2r_minimal_node_msgs/"]
-
-[conditional.'templatetype == "msgs & msgs"']
-include = ["r2r_minimal_node/", "r2r_minimal_node_msgs/"]
+ignore = ["r2r_minimal_node/"]
