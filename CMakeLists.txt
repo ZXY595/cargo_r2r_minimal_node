@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 project({{project-name}})
 
-{% if template_type == "node" -%}
+{% if use_template_node -%}
 
 find_package(ament_cmake REQUIRED)
 
@@ -15,7 +15,7 @@ include(r2r_cargo.cmake)
 r2r_cargo(std_msgs               # just to test that it works
           rcl                    # we need the c ros2 api
           rcl_action             # as of r2r 0.1.0, we also need the action api
-        {$ if use_additonal_msgs -%}
+        {% if use_additonal_msgs -%}
           {{additonal_msgs}}  # our custom message types
         {% endif -%}
         )
@@ -34,7 +34,7 @@ install(PROGRAMS
 
 {% endif -%}
 
-{% if template_type == "msgs" -%}
+{% if use_template_msgs -%}
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)

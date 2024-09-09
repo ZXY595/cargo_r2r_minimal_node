@@ -1,5 +1,5 @@
 use r2r;
-{$ if use_additonal_msgs -%}
+{% if use_additonal_msgs -%}
 use r2r::{{additonal_msgs}};
 {% endif -%}
 use futures::{StreamExt, future};
